@@ -1,0 +1,143 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+    viewBox="0 0 23.25 30.75"
+  >
+    <g id="sim-card-2" transform="translate(0.375 0.375)">
+      <path
+        id="Path"
+        d="M21.25,27.5A1.25,1.25,0,0,1,20,28.75H1.25A1.25,1.25,0,0,1,0,27.5V1.25A1.25,1.25,0,0,1,1.25,0H14.409a1.25,1.25,0,0,1,.966.456l5.59,6.8a1.24,1.24,0,0,1,.285.793Z"
+        transform="translate(0.625 0.625)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <rect
+        id="Rectangle"
+        width="13.75"
+        height="11.25"
+        rx="2"
+        stroke-width="2"
+        transform="translate(4.375 14.375)"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        fill="none"
+      />
+      <path
+        id="Path-2"
+        data-name="Path"
+        d="M.625,11.25V0"
+        transform="translate(7.5 14.375)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-3"
+        data-name="Path"
+        d="M.625,11.25V0"
+        transform="translate(13.75 14.375)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-4"
+        data-name="Path"
+        d="M0,.625H3.75"
+        transform="translate(14.375 17.5)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-5"
+        data-name="Path"
+        d="M0,.625H3.75"
+        transform="translate(4.375 17.5)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-6"
+        data-name="Path"
+        d="M0,.625H3.75"
+        transform="translate(14.375 21.25)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-7"
+        data-name="Path"
+        d="M0,.625H3.75"
+        transform="translate(4.375 21.25)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-8"
+        data-name="Path"
+        d="M.625,0V5"
+        transform="translate(3.75 0.625)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-9"
+        data-name="Path"
+        d="M.625,0V5"
+        transform="translate(7.5 0.625)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+      <path
+        id="Path-10"
+        data-name="Path"
+        d="M.625,0V5"
+        transform="translate(11.25 0.625)"
+        fill="none"
+        stroke="#ed7d7b"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+</template>
