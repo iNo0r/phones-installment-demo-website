@@ -42,8 +42,7 @@
       <div class="parts-container">
         <div
           class="partA"
-          id="live-demo"
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
           data-aos-once="true"
           data-aos-delay="0"
           data-aos-offset="0"
@@ -66,8 +65,7 @@
         </div>
         <div
           class="partB"
-          id="live-demo"
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
           data-aos-once="true"
           data-aos-delay="250"
           data-aos-offset="0"
@@ -91,8 +89,7 @@
         </div>
         <div
           class="partC"
-          id="live-demo"
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
           data-aos-once="true"
           data-aos-delay="500"
           data-aos-offset="0"
@@ -136,6 +133,25 @@
       <div class="item">
         <div class="icon"><EcoFriendlyIcon></EcoFriendlyIcon></div>
         <div class="description">Eco-friendly choice</div>
+      </div>
+    </section>
+
+    <section class="section5">
+      <div class="item">
+        <div class="icon"></div>
+        <div class="description"></div>
+      </div>
+      <div class="item">
+        <div class="icon"></div>
+        <div class="description"></div>
+      </div>
+      <div class="item">
+        <div class="icon"></div>
+        <div class="description"></div>
+      </div>
+      <div class="item">
+        <div class="icon"></div>
+        <div class="description"></div>
       </div>
     </section>
   </div>
