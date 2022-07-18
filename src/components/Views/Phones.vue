@@ -1,13 +1,13 @@
 <template>
   <div class="phones-main-c">
     <section class="mini-nav">
-      <MiniNav></MiniNav>
+      <MiniNav @chooseList="chooseList"></MiniNav>
     </section>
     <section>
       <PhoneAdd></PhoneAdd>
     </section>
     <section>
-      <PhonesList></PhonesList>
+      <PhonesList :whichList="whichList"></PhonesList>
     </section>
   </div>
 </template>
@@ -19,6 +19,16 @@ import PhonesList from "./Phones/phones-list.vue";
 
 export default {
   components: { MiniNav, PhoneAdd, PhonesList },
+  data() {
+    return {
+      whichList: "All",
+    };
+  },
+  methods: {
+    chooseList(listName) {
+      this.whichList = listName;
+    },
+  },
 };
 </script>
 
