@@ -4,7 +4,9 @@
       <slot name="navbar"></slot>
     </section>
 
-    <section class="body"></section>
+    <section class="body">
+      <slot name="body"></slot>
+    </section>
 
     <section class="footer">
       <slot name="footer"></slot>
@@ -13,6 +15,7 @@
 </template>
 
 <script setup>
+// they hide while scroll was done by https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_navbar_hide_scroll
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
@@ -29,15 +32,14 @@ window.onscroll = function () {
 $nav-height: 5rem;
 .layout-container {
   #navbar {
-    min-height: $nav-height;
+    height: $nav-height;
     width: 100%;
-    background: red;
-    background-color: #333;
     position: fixed;
     top: 0;
     width: 100%;
     display: block;
     transition: top 0.3s;
+    z-index: 99;
   }
   .body {
     width: 100vw;

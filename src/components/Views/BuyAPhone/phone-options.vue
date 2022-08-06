@@ -4,7 +4,7 @@
       <div class="option-row make-row">
         <div class="option-title">Make</div>
         <div class="make-options">
-          <div
+          <!-- <div
             class="option"
             :class="selectedMakeOption('Apple')"
             @click="selectMake('Apple')"
@@ -17,6 +17,15 @@
             @click="selectMake('Samsung')"
           >
             Samsung
+          </div> -->
+          <div
+            class="option"
+            v-for="(item, index) in $store.getters.phoneOptions.makes"
+            :key="index"
+            :class="selectedMakeOption(item.make)"
+            @click="selectMake(item.make, index)"
+          >
+            {{ item.make }}
           </div>
         </div>
       </div>
@@ -29,11 +38,13 @@
             :class="modelOptionsIsActive"
             @click="toggleModelOptions"
           >
-            <div>{{ selectedModel || "iPhone 12 Pro " }}</div>
+            <div>
+              {{ $store.getters.selectedPhoneInfo.model }}
+            </div>
             <div class="arrow">{{ "<" }}</div>
           </div>
           <div class="other-options" v-if="showModelOptions">
-            <div
+            <!-- <div
               class="model-option"
               @click="chooseModelOption('iPhone 12 Pro')"
             >
@@ -50,6 +61,16 @@
             <div class="model-option" @click="chooseModelOption('iPhone 13')">
               iPhone 13
             </div>
+            <div class="my-hl"></div> -->
+            <div
+              class="model-option"
+              v-for="(model, index) in $store.getters.phoneOptions.models"
+              :key="index"
+              @click="chooseModelOption(model, index)"
+            >
+              {{ model }}
+            </div>
+            <div class="my-hl"></div>
           </div>
         </div>
       </div>
@@ -57,7 +78,7 @@
       <div class="option-row colors-row">
         <div class="option-title">Color</div>
         <div class="color-options">
-          <div
+          <!-- <div
             class="color-option"
             :class="selectedColor('black')"
             @click="selectColor('black')"
@@ -86,6 +107,21 @@
               <div class="color" style="background-color: green"></div>
             </div>
             <div class="color-title">green</div>
+          </div> -->
+          <div
+            class="color-option"
+            v-for="(colorItem, index) in $store.getters.phoneOptions.colors"
+            :key="index"
+            :class="selectedColor(index)"
+            @click="selectColor(index)"
+          >
+            <div class="color-c">
+              <div
+                class="color"
+                :style="{ 'background-color': colorItem.colorCode }"
+              ></div>
+            </div>
+            <div class="color-title">{{ colorItem.color }}</div>
           </div>
         </div>
       </div>
@@ -93,7 +129,7 @@
       <div class="option-row storage-row">
         <div class="option-title">Storage</div>
         <div class="storage-options">
-          <div
+          <!-- <div
             class="storage-option"
             :class="selectedStorage(128)"
             @click="selectStorage(128)"
@@ -115,10 +151,19 @@
             @click="selectStorage(512)"
           >
             512GB
+          </div> -->
+          <div
+            v-for="(storage, index) in $store.getters.phoneOptions.storages"
+            :key="index"
+            class="storage-option"
+            :class="selectedStorage(index)"
+            @click="selectStorage(index)"
+          >
+            {{ storage }}
           </div>
         </div>
       </div>
-      <div class="next-btn" @click="phase++">NEXT</div>
+      <div class="next-btn" @click="nextPhase">NEXT</div>
     </div>
 
     <div class="phase2" v-if="phase >= 2">
@@ -170,7 +215,7 @@
         for more information
       </div>
 
-      <div class="next-btn" @click="phase++">NEXT</div>
+      <div class="next-btn" @click="nextPhase">NEXT</div>
     </div>
     <div class="phase3" v-if="phase >= 3">
       <div class="phase-title">Choose Lease Term</div>
@@ -222,12 +267,12 @@
         for more information
       </div>
 
-      <div class="next-btn" @click="phase++">NEXT</div>
+      <div class="next-btn" @click="nextPhase">NEXT</div>
     </div>
 
     <div class="phase4" v-if="phase >= 4">
       <div class="phase-title">Your Details</div>
-      <form class="user-info-form" action="submit">
+      <form class="user-info-form" action="submit" @submit.prevent>
         <div class="partA">
           <div class="client-input">
             <label for="client-firstName">First Name</label>
@@ -239,13 +284,7 @@
           </div>
           <div class="client-input">
             <label for="client-Email">Email Address</label>
-            <input
-              type="email"
-              id="client-Email"
-              pattern=".+@globex\.com"
-              size="30"
-              required
-            />
+            <input type="email" id="client-Email" size="30" required />
           </div>
         </div>
 
@@ -260,7 +299,7 @@
           for more information
         </div>
 
-        <button class="next-btn" @submit="phase++">NEXT</button>
+        <button class="next-btn" @submit="nextPhase">NEXT</button>
       </form>
     </div>
   </div>
@@ -274,8 +313,6 @@ export default {
   components: { WarrantyIcon, GlobalInsuranceIcon, WarrantyIcon2 },
   data() {
     return {
-      phase: 1,
-
       selectedMake: "Apple",
       // model
       showModelOptions: false,
@@ -296,8 +333,9 @@ export default {
   },
 
   methods: {
-    selectMake(selectedMakeOption) {
+    selectMake(selectedMakeOption, index) {
       this.selectedMake = selectedMakeOption;
+      this.$store.commit("selectMake", index);
     },
     selectedMakeOption(selectedMakeOption) {
       return {
@@ -308,24 +346,27 @@ export default {
     toggleModelOptions() {
       this.showModelOptions = !this.showModelOptions;
     },
-    chooseModelOption(value) {
+    chooseModelOption(value, index) {
       this.selectedModel = value;
+      this.$store.commit("selectModel", index);
       this.showModelOptions = false;
     },
 
     //color
-    selectColor(color) {
-      this.selectedColorOption = color;
+    selectColor(colorIndex) {
+      this.selectedColorOption = colorIndex;
+      this.$store.commit("selectColor", colorIndex);
     },
-    selectedColor(color) {
+    selectedColor(colorIndex) {
       return {
-        selectedColorOption: this.selectedColorOption === color,
+        selectedColorOption: this.selectedColorOption === colorIndex,
       };
     },
 
     //storage
-    selectStorage(storage) {
-      this.selectedStorageOption = storage;
+    selectStorage(StorageIndex) {
+      this.selectedStorageOption = StorageIndex;
+      this.$store.commit("selectStorage", StorageIndex);
     },
     selectedStorage(storage) {
       return {
@@ -335,12 +376,19 @@ export default {
 
     //insurance
     includeInsurance(value) {
+      this.$store.commit("includeInsurace", value);
       this.hasInsurance = value;
     },
 
     //lease Term
     setIt12Month(value) {
+      this.$store.commit("setIt12Month", value);
       this.is12Months = value;
+    },
+
+    //nextPhase
+    nextPhase() {
+      this.$store.commit("updatePhase", 1);
     },
   },
   computed: {
@@ -349,6 +397,10 @@ export default {
       return {
         modelOptionsIsActive: this.showModelOptions,
       };
+    },
+
+    phase() {
+      return this.$store.state.currentPhase;
     },
   },
 };

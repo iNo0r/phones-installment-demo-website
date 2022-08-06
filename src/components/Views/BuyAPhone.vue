@@ -50,6 +50,13 @@ export default {
     background: #404eff;
     width: 100%;
   }
+  @media (max-width: 850px) {
+    .section1 {
+      .partB {
+        padding: 10px;
+      }
+    }
+  }
   @media (max-width: 650px) {
     flex-wrap: wrap;
     .section1 {

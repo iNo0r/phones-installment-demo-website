@@ -2,42 +2,63 @@
   <div class="phone-view">
     <div class="partA">
       <!-- img -->
-      <img
+      <!-- <img
         src="https://raylo.imgix.net/iphone-13-pro-silver.png?bg=404EFF&fm=jpg&fit=max&w=1024&h=1024&dpr=1&trim=auto&trim-md=0"
         alt=""
-      />
+      /> -->
+      <img :src="$store.getters.selectedPhoneInfo.phoneImg" alt="" />
     </div>
 
     <div class="partB">
       <div class="first-row">
         <div class="row-title title">Model</div>
-        <div class="row-content">iPhone 13 pro</div>
+        <div class="row-content">
+          {{ $store.getters.selectedPhoneInfo.model }}
+        </div>
       </div>
 
       <div class="second-row">
         <div class="left-column">
           <div class="column-title title">Storage</div>
 
-          <div class="column-content">512GB</div>
+          <div class="column-content">
+            {{ $store.getters.selectedPhoneInfo.storage }}
+          </div>
         </div>
         <div class="right-column">
           <div class="column-title title">Color</div>
 
           <div class="column-content">
-            <div class="phone-color" style="background-color: white"></div>
-            <div class="phone-color-title">Silver</div>
+            <div
+              class="phone-color"
+              :style="{
+                'background-color':
+                  $store.getters.selectedPhoneInfo.color.colorCode,
+              }"
+            ></div>
+            <div class="phone-color-title">
+              {{ $store.getters.selectedPhoneInfo.color.name }}
+            </div>
           </div>
         </div>
       </div>
       <div class="my-hl"></div>
       <div class="third-row">
         <div class="row-title title">Lease Term</div>
-        <div class="row-content">12 Months</div>
+        <div class="row-content">
+          {{
+            $store.getters.selectedPhoneInfo.leaseTerm
+              ? "12 Months"
+              : "24 Months"
+          }}
+        </div>
       </div>
       <div class="my-hl"></div>
       <div class="third-row">
         <div class="row-title title">Insurance</div>
-        <div class="row-content">Not Added</div>
+        <div class="row-content">
+          {{ $store.getters.selectedPhoneInfo.insurance ? "" : "Not" }} Added
+        </div>
       </div>
       <div class="my-hl"></div>
       <div class="forth-row">

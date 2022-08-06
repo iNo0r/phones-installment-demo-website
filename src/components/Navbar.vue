@@ -1,6 +1,6 @@
 <template>
   <div class="pn-navbar">
-    <MobileView v-if="true"></MobileView>
+    <MobileView v-if="isMobileView"></MobileView>
     <DesktopView v-else></DesktopView>
   </div>
 </template>

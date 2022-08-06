@@ -3,10 +3,12 @@
     <div class="nav-title">SOME COMPANY</div>
 
     <div class="nav-items">
-      <div>WHY US</div>
-      <div>PHONES</div>
-      <div>ABOUT</div>
-      <div>BUY A PHONE</div>
+      <router-link to="/"><div>WHY US</div></router-link>
+      <router-link to="/phones"><div>PHONES</div></router-link>
+      <router-link to="/about"><div>ABOUT</div></router-link>
+      <router-link to="/buy-a-phone"><div>BUY A PHONE</div></router-link>
+      <!-- <div>ABOUT</div> -->
+      <!-- <div>BUY A PHONE</div> -->
     </div>
   </div>
 </template>
@@ -32,8 +34,13 @@
     justify-content: space-between;
     align-items: center;
 
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
     background: #4252ff;
-    div:nth-child(4) {
+    a:nth-child(4) {
       height: 100%;
       background-color: #ffcec7;
       color: black;

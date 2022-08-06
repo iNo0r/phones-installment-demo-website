@@ -4,10 +4,10 @@
     <NavBtn @click="showNavItems"></NavBtn>
   </div>
   <div class="nav-items" :class="navItemsStatus">
-    <div>WHY US</div>
-    <div>PHONES</div>
-    <div>ABOUT</div>
-    <div>BUY A PHONE</div>
+    <router-link to="/"><div>WHY US</div></router-link>
+    <router-link to="/phones"><div>PHONES</div></router-link>
+    <router-link to="/about"><div>ABOUT</div></router-link>
+    <router-link to="/buy-a-phone"><div>BUY A PHONE</div></router-link>
   </div>
 </template>
 
@@ -65,7 +65,13 @@ export default {
   align-items: center;
   visibility: hidden;
   z-index: -1;
-  div:nth-child(4) {
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:nth-child(4) {
     width: 100%;
     padding: 1rem 0;
     text-align: center;
